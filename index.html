@@ -2,6 +2,7 @@
 	<head>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 		<script src="js/mail-generator.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script>
@@ -13,9 +14,9 @@
         		subjectIterator = subject[i];
         		senderIterator = sender[i];
         		messageIterator = body[i];
-        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><strong class='pull-left'>"+senderIterator+ "</strong>" +subjectIterator+ "</li></ul></a></div><div class='row second'><ul class='list-unstyled'><li class='shadow info'>"+messageIterator+"</li></ul></div>");
+        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><i class='fa fa-user fa-1x pull-left'></i><strong class='pull-left'>"+senderIterator+ "</strong>" +subjectIterator+ "</li></ul></a></div><div class='row second'><ul class='list-unstyled'><li class='shadow info'>"+messageIterator+"</li></ul></div>");
         	}
-        	$('#inboxCount').html("<span class='messageCountText'>Inbox ("+body.length+")</span>");
+        	$('#inboxCount').html("<i class='fa fa-envelope fa-2x'></i><span class='messageCountText'>Inbox ("+body.length+")</span>");
         }
 
         displaySubject();

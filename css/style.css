@@ -31,3 +31,10 @@ span.messageCountText {
 	color: #c0392b;
 	font-weight: bold;
 }
+
+i.fa.fa-envelope, i.fa.fa-user {
+	color: #34495e;
+	margin-right: 5px;
+}
+
+
