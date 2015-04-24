@@ -1,0 +1,6 @@
+.shadow {
+  background: #fff;
+  padding: 30px;
+  box-shadow: 2px 2px 2px #ccc;
+  font-size: 18px;
+}
