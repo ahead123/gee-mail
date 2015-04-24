@@ -21,3 +21,13 @@ div.mailbox a:hover ul li.shadow {
 ul > li.info {
 	display: none;
 }
+
+div.jumbotron {
+	background-color: #34495e;
+	color: #fff;
+}
+
+span.messageCountText {
+	color: #c0392b;
+	font-weight: bold;
+}

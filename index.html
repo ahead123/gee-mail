@@ -13,8 +13,9 @@
         		subjectIterator = subject[i];
         		senderIterator = sender[i];
         		messageIterator = body[i];
-        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><strong class='pull-left'>"+senderIterator+ "</strong>" +subjectIterator+ "</li></ul></a><div></div class='row second'><ul class='list-unstyled'><li class='shadow info'>"+messageIterator+"</li></ul></div>");
+        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><strong class='pull-left'>"+senderIterator+ "</strong>" +subjectIterator+ "</li></ul></a></div><div class='row second'><ul class='list-unstyled'><li class='shadow info'>"+messageIterator+"</li></ul></div>");
         	}
+        	$('#inboxCount').html("<span class='messageCountText'>Inbox ("+body.length+")</span>");
         }
 
         displaySubject();
@@ -25,17 +26,17 @@
         });
         
       };
-    </script>/
+    </script>
 	</head>
 
 	<body>
 
+		<div class="jumbotron text-center">
+			<h1>Gee-Mail</h1>
+		</div> <!-- ends jumbotron -->
+
 		<div class="container" id="main">
-
-			<div class="jumbotron text-center">
-				<h1>Gee-Mail</h1>
-			</div> <!-- ends jumbotron -->
-
+			<p id="inboxCount"></p>
 			<div class="col-md-12 well mailbox"></div> 
 
 		</div> <!-- ends main container -->
