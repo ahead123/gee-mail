@@ -25,7 +25,10 @@ ul > li.info {
 div.jumbotron {
 	background-color: #34495e;
 	color: #fff;
+	padding-top: 40px;
+	margin-top: -20px;
 }
+
 
 span.messageCountText {
 	color: #c0392b;
@@ -34,7 +37,18 @@ span.messageCountText {
 
 i.fa.fa-envelope, i.fa.fa-user {
 	color: #34495e;
-	margin-right: 5px;
+	margin-right: 10px;
+	margin-top: 3px;
 }
+
+#white {
+	color: #fff;
+	margin-right: 25px;
+}
+
+
+
+
+
 
 
