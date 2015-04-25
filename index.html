@@ -12,20 +12,21 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         var displaySubject = function() {
         	for(var i=0; i < subject.length; i++) {
-        		subjectIterator = subject[i];
-        		senderIterator = sender[i];
-        		messageIterator = body[i];
-        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><i class='fa fa-user fa-1x pull-left'></i><strong class='pull-left'>"+senderIterator+ "</strong>" +subjectIterator+ "</li><li class='shadow info text-left'>"+messageIterator+"</li></ul></a></div>");
+        		var subjectIterator = subject[i];
+        		var senderIterator = sender[i];
+        		var messageIterator = body[i];
+                var date = 
+        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><i class='fa fa-user fa-1x pull-left'></i><strong class='pull-left'>"+senderIterator+ "</strong><br class='showMobile'>" +subjectIterator+ "<span class='pull-right'>"+getRandomDate()+"</span></li><li class='shadow info text-left'><strong>Message:</strong> "+messageIterator+"</li><hr></ul></a></div>");
         	}
         	$('#inboxCount').html("<i class='fa fa-envelope fa-2x'></i><span class='messageCountText'>Inbox ("+body.length+")</span>");
         }
 
         displaySubject();
 
+        // listens for the click event on a message div and displays only $this message
         $('div.row').on('click', function(e) {
         	e.preventDefault();
-        	var currentMessage = $(this).find('li.info').toggle('fast');
-            
+        	$(this).find('li.info').slideToggle('fast'); 
         });
         
       };

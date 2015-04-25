@@ -46,7 +46,28 @@ i.fa.fa-envelope, i.fa.fa-user {
 	margin-right: 25px;
 }
 
+.showMobile {
+	display: none;
+}
 
+
+
+@media all and (max-width: 990px) {
+
+	ul > li.shadow {
+		min-height: 160px;
+	}
+
+	ul > li.shadow > i.fa.fa-user, ul > li.shadow > strong {
+		float: none!important;
+		text-align: center!important;
+	}
+
+	.showMobile {
+		display: block!important;
+	}
+
+}
 
 
 
