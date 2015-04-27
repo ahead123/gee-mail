@@ -28,6 +28,11 @@
         	e.preventDefault();
         	$(this).find('li.info').slideToggle('fast'); 
         });
+
+        setInterval(function(){
+            getNewMessage()
+            console.log("i'm firing every 5 seconds");
+        }, 5000);
         
       };
     </script>
