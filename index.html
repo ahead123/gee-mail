@@ -10,29 +10,54 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        var displaySubject = function() {
+        
+        // appends messages to the mailbox div - takes a sender, subject, and a body as params
+        var appendMailbox = function(sender, subject, body) {
+          $("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><i class='fa fa-user fa-1x pull-left'></i><strong class='pull-left'>"+sender+ "</strong><br class='showMobile'>" +subject+ "<span class='pull-right'>"+getRandomDate()+"</span></li><li class='shadow info text-left'><strong>Message:</strong> "+body+"</li><hr></ul></a></div>");
+        }
+
+        // updates inbox count
+        var inboxCounter = function(element) {
+          $('#inboxCount').html("<i class='fa fa-envelope fa-2x'></i><span class='messageCountText'>Inbox ("+element+")</span>");
+        }
+
+        // loops through subject, sender, and body arrays. calls appendMailbox function. 
+        var displayMessage = function() {
         	for(var i=0; i < subject.length; i++) {
         		var subjectIterator = subject[i];
         		var senderIterator = sender[i];
-        		var messageIterator = body[i];
-                var date = 
-        		$("div.mailbox").append("<div class='row'><a class='messageHolder' href='#'><ul class='list-unstyled text-center'><li class='shadow'><i class='fa fa-user fa-1x pull-left'></i><strong class='pull-left'>"+senderIterator+ "</strong><br class='showMobile'>" +subjectIterator+ "<span class='pull-right'>"+getRandomDate()+"</span></li><li class='shadow info text-left'><strong>Message:</strong> "+messageIterator+"</li><hr></ul></a></div>");
+        		var bodyIterator = body[i];
+            
+            appendMailbox(senderIterator, subjectIterator, bodyIterator);
+        		inboxCounter(body.length);
         	}
-        	$('#inboxCount').html("<i class='fa fa-envelope fa-2x'></i><span class='messageCountText'>Inbox ("+body.length+")</span>");
+        	
         }
 
-        displaySubject();
+        displayMessage();
+
+        // takes last element in the sender, subject, and body arrays and appends to mailbox div
+        var messagePusher = function() {
+          // subject.push("You've got mail!");
+          // sender.push("Arturo");
+          // body.push("Aloha!");
+          appendMailbox(sender[sender.length -1], subject[subject.length -1], body[body.length -1]);
+        }
+
+
+        // updates mailbox div every 5 seconds with new message
+        setInterval(function(){
+          getNewMessage()
+          messagePusher()
+          inboxCounter(sender.length);
+        }, 5000);
+   
 
         // listens for the click event on a message div and displays only $this message
         $('div.row').on('click', function(e) {
         	e.preventDefault();
         	$(this).find('li.info').slideToggle('fast'); 
         });
-
-        setInterval(function(){
-            getNewMessage()
-            console.log("i'm firing every 5 seconds");
-        }, 5000);
         
       };
     </script>
